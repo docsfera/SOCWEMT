@@ -1,0 +1,2 @@
+
+			<input type="text" placeholder="text/" class="CreatorTextarea" name="texttitle"><div class="dropZone">Для загрузки, перетащите файл сюда.</div>
