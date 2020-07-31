@@ -10,17 +10,6 @@
 					<div class="SideText1"><a href="../index.php" class="AMain ASide">Menu</a></div>
 					<div class="SideText2"><a href="../articles/articles.php" class="AMain ASide">Login</a></div>
 					<div class="MainText"><a href="../articles/articles.php" class="AMain">SOCWEMT</a></div>
-					
-
-				<!-- <div class = "ArticlesType">
-					<div class="aa" >1</div>
-				</div>
-				<div class = "ArticlesType">
-					<div class="aa" >2</div>
-				</div>
-				<div class = "ArticlesType">
-					<div class="aa" >3</div>
-				</div> -->
 			</div>
 			<div class="blockNews">
 				<div class = "ArticlesType">

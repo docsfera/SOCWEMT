@@ -29,7 +29,15 @@ if($result->num_rows >0) {
 		<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 	</head>
 	<body> 
-		<div class="CreatorMain">' . $_POST['text'] . '</div></body>
+
+	<div id ="ArticlesHead">
+		<div class="SideText1"><a href="../index.php" class="AMain ASide">Menu</a></div>
+		<div class="SideText2"><a href="../articles/articles.php" class="AMain ASide">Login</a></div>
+		<div class="MainText"><a href="../articles/articles.php" class="AMain">SOCWEMT</a></div>
+	</div>
+
+
+		<div class="CreatorMain divtextaria">' . $_POST['text'] . '</div></body>
 </html>';
  
 	$fp = fopen("../articlesphp/create_" . $last_id . ".php", "w");

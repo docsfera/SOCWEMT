@@ -239,3 +239,12 @@ textarea {
 	/*display: block;*/
 	border-right: 1px solid grey;
 }
+
+.divtextaria{
+	display: inline-block;
+	resize:none;
+	font-size: 20px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	letter-spacing: 3px;
+	line-height: 150%;
+}
