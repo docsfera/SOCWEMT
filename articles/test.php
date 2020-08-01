@@ -3,6 +3,7 @@
 /*$text = $_POST['text'];
 echo $text + 2;		// don't return !!!! */
 $text = $_POST['text'];
+
 $host = 'localhost'; // адрес сервера 
 $database = 'docsfera'; // имя базы данных
 $user = 'root'; // имя пользователя
