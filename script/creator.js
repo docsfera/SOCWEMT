@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", function(event) { 
+
+  document.getElementById('instrument-img').addEventListener("click", clickimg);
+  document.getElementById('instrument-text').addEventListener("click", clicktext);
+
+
+});
+
+
 function clicktext(){
 
     /*<form id="" method="POST" action="">
@@ -18,14 +27,14 @@ function clicktext(){
 	div_text.type="text";
 	div_text.className = 'CreatorTextarea';
 	div_text.Id = "sortpicture2";
-	document.querySelector('div.CreatorBody').append(div_text);
+	document.querySelector('div#div-canvas').append(div_text);
     //form.append(div_text);
 }
 function clickimg(){
 	var form_div_img = document.createElement('div');
-	form_div_img.className = "dropZone";
+	form_div_img.className = "dropZone dropZone-create ";
 	form_div_img.innerHTML = 'Для загрузки, перетащите файл сюда.';
-	document.querySelector('div.CreatorBody').append(form_div_img);
+	document.querySelector('div#div-canvas').append(form_div_img);
     var dropZone = $('.dropZone'),
         maxFileSize = 1000000; // максимальный размер фалйа - 1 мб.
 	findimg(dropZone.length-1);

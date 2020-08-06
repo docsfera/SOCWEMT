@@ -1,7 +1,10 @@
 html, body {
   margin: 0;
   padding: 0;
+
 }
+
+
 #ArticlesHead{
 	width: 100%;
 	height: 60px;
@@ -32,6 +35,47 @@ html, body {
     vertical-align: middle;
     padding-top: 20px;
     
+
+}
+.instruments{
+	width: 40px;
+	position: sticky;
+	top: 30px;
+	float: right;
+	height: auto;
+}
+.instruments a{
+	color: #fff;
+	display: block;
+	background: #3d3d3d;
+	padding: 10px;
+	border-bottom: 1px solid #666;
+	transition: 0.5s all;
+}
+.instruments a:hover{
+	background: #666;
+	text-decoration: none;
+	/*padding: 5px 5px 5px 10px;*/
+}
+.instrument{
+
+	position: absolute;
+	/*width: 100%;*/
+	right: 100%;
+	border-right: 5px solid transparent; 
+	top: -9999em;
+	opacity: 0;
+	transition: 0.5s opacity;
+
+}
+.instruments-drop{
+	position: relative;
+
+}
+
+.instruments-drop:hover .instrument{
+	opacity: 1;
+	top: 0;
 }
 
 .AMain{
@@ -97,19 +141,22 @@ html, body {
     margin-right: auto 
 }
 .CreatorTextarea{
-	height:200px;
-	width:60%;
-	border:1px solid blue;
-	margin: 20px;
+	min-height: 200px;
+	width: 100%;
+	resize: none;
+	border: 2px solid #ccc;
+
+	 -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 .dropZone {    
     color: #555;
     font-size: 18px;
     text-align: center;    
-    
-    width: 400px;
+   
     padding: 50px 0;
-    margin: 50px auto;
+    min-height: 200px;
     
     background: #eee;
     border: 1px solid #ccc;
@@ -118,6 +165,16 @@ html, body {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
+.dropZone-create{
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 30%;
+  	min-height: 0;
+  	margin-top: 50px;
+}
+
 .dropZoneImgMain{
     width: 300px;
 	height: 200px;
@@ -166,20 +223,17 @@ textarea {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	letter-spacing: 3px;
 	line-height: 150%;
-	background: grey;
+	background: #F3F3F3;
 }
-.instruments{
-	float: left;
-	width: 5%;
-}
-.instrument{
+
+/*.instrument{
 	width: 100%;
 	background: grey;
-}
-.line{
-	height: 40px;
-	width: 100%;
-	background: white;
+}*/
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 
@@ -241,4 +295,32 @@ textarea {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	letter-spacing: 3px;
 	line-height: 150%;
+}
+
+/*
+###################################BOOOTS
+*/
+
+.row-style{
+	margin-top: 50px;
+}
+.col-md-12-style{
+	padding: 10px 0;
+	height: 250px;
+}
+.col-md-2-img{
+	width: 100%;
+	height: 100%;
+	float:left;
+	margin-right:10px;
+}
+.block-instruments{
+	background: black;
+	width: 100px;
+	height: 100px;
+}
+.block-main-article{
+	width: 400px;
+	height: 500px;
+
 }
