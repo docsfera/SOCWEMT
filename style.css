@@ -45,7 +45,7 @@ html, body {
 	height: auto;
 }
 .instruments a{
-	color: #fff;
+	color: white;
 	display: block;
 	background: #3d3d3d;
 	padding: 10px;
@@ -62,7 +62,7 @@ html, body {
 	position: absolute;
 	/*width: 100%;*/
 	right: 100%;
-	border-right: 5px solid transparent; 
+	/*border-right: 5px solid transparent;*/ 
 	top: -9999em;
 	opacity: 0;
 	transition: 0.5s opacity;
@@ -150,6 +150,16 @@ html, body {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
+.CreatorTextarea-create{
+	width: 50%;
+	margin-top: 50px;
+	margin-left: auto;
+  	margin-right: auto;
+  	display: block;
+
+}
+
 .dropZone {    
     color: #555;
     font-size: 18px;
@@ -324,3 +334,5 @@ ul{
 	height: 500px;
 
 }
+
+

@@ -2,33 +2,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   document.getElementById('instrument-img').addEventListener("click", clickimg);
   document.getElementById('instrument-text').addEventListener("click", clicktext);
-
-
+  document.getElementById('instrument-b').addEventListener("click", () => {change_text('<b>','</b>',event)});
+  document.getElementById('instrument-em').addEventListener("click", () => {change_text('<em>','</em>',event)});
+  document.querySelector('textarea.CreatorTextarea').onclick = event => {rememberlast(event)};
+  
 });
 
 
 function clicktext(){
-
-    /*<form id="" method="POST" action="">
- 
-        
-
-            <input  id="what" name="text" type="text" placeholder="Текст"/ autofocus>
-
-            <input  type="submit" onclick="countRabbits()" value="Отправить"/ >
-        </form>
-*/
-
-
-    //var form = document.createElement('form')
-    //form.method = 'POST';
-    //form.action = "upload.php";
 	var div_text = document.createElement('textarea');
 	div_text.type="text";
-	div_text.className = 'CreatorTextarea';
-	div_text.Id = "sortpicture2";
+	div_text.className = 'CreatorTextarea CreatorTextarea-create';
+	/*div_text.Id = "sortpicture2";*/
 	document.querySelector('div#div-canvas').append(div_text);
-    //form.append(div_text);
+
+    div_text.onclick = event => {rememberlast(event)};
 }
 function clickimg(){
 	var form_div_img = document.createElement('div');
@@ -221,26 +209,18 @@ $('#upload').on('click', function() {
 
 
 
-function ViewText() 
-     {  
-          /*alert('5');
-          var tt = document.querySelector('input.CreatorTextarea');
-          tt.value  = "fff"*/
-          //document.getElementById("DivView").style.display = ""; 
-          //document.getElementById("DivView").innerHTML = document.getElementById("editableTextarea").value; 
-          //document.getElementById("DivView").innerHTML = document.querySelectorAll('input.CreatorTextarea').value;
-          //document.getElementById("DivView").innerHTML = '5';
-                                                                                    // заменяем "\n" на "<BR>" во всем тексте 
-          /*var text = document.querySelector('textarea.CreatorTextarea').innerHTML;
+function ViewText(elemText) 
+     {                                                                              // заменяем "\n" на "<BR>" во всем тексте 
+          var text = elemText.innerHTML;
           text = text.replace(new RegExp("\n","g"), "<BR>"); 
-          document.querySelector('textarea.CreatorTextarea').innerHTML = text;*/
+          elemText.innerHTML = text;
      }
-function change_text(tag1, tag2) 
+function change_text(tag1, tag2,event) 
      { 
           if (tag1=="" || tag2=="") 
                return; 
 
-          var elemText = instruments('textarea.CreatorTextarea'); 
+          var elemText = document.querySelector('textarea.textarea-active'); 
           if (elemText==null) 
                return; 
 
@@ -261,7 +241,8 @@ function change_text(tag1, tag2)
           elemText.selectionStart = str1.length + tag1.length; 
           elemText.selectionEnd = elemText.selectionStart+strMiddle.length; 
           elemText.focus();
-        document.querySelector('div.CreatorBody').innerHTML = document.querySelector('textarea.CreatorTextarea').value;
+          ViewText(elemText);
+        //document.querySelector('div.CreatorBody').innerHTML = document.querySelector('textarea.CreatorTextarea').value;
      } 
 //alert(document.querySelector('div.instruments').innerHTML);
 
@@ -295,4 +276,12 @@ function filter(){   // Заменяет textaries на divы и передае�
         }
         divs[i].innerHTML = textareas[i].value;       
     }
+}
+
+
+function rememberlast(event) {
+    if (document.querySelector('textarea.textarea-active')){
+        document.querySelector('textarea.textarea-active').classList.remove("textarea-active");
+    } 
+    event.currentTarget.classList.add('textarea-active');
 }

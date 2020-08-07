@@ -35,7 +35,7 @@
 							</div>
 						</div>
 						<div class="col-md-8">
-							<textarea type="text" name="texttitle" placeholder ='' class="CreatorTextarea" autofocus></textarea>
+							<textarea type="text" name="texttitle" placeholder ='' class="CreatorTextarea " autofocus></textarea>
 						</div>
 						
 						<!-- <div class="dropZone dropZone2 classcheck">Для загрузки, перетащите файл сюда.</div>
@@ -52,19 +52,20 @@
 		<div class="container-fluid" style="padding:0;">
 
 			<ul class="instruments">
-				<li class="instruments-drop"> <a href="#">+</a>
+				<li class="instruments-drop"> <a>+</a>
 					<ul class="instrument">
-						<li> <a href="#" id="instrument-text">Text</a> </li>
-						<li> <a href="#" id="instrument-img">Image</a> </li>
+						<li> <a id="instrument-text">Text</a> </li>
+						<li> <a id="instrument-img">Image</a> </li>
 					</ul>
 				</li>
-				<li class="instruments-drop"> <a href="#">B</a> </li>
+				<li class="instruments-drop"> <a id="instrument-b">B</a> </li>
+				<li class="instruments-drop"> <a id="instrument-em">K</a> </li>
 				
 			</ul>
 
-			<div class="row" style="background: orange; height: 1000px; position: relative; z-index: -1;">
+			<div class="row" style="background: orange; height: 1000px; z-index: -1;">
 				
-				<div id='div-canvas' class="col-md-12">
+				<div id='div-canvas' class="col-md-12" style="position: static;">
 					
 				</div>
 			

@@ -10,6 +10,8 @@ function countRabbits() {
 
       element.appendChild(link);
 
+      
+
 }
 /*var div = document.getElementById('aa');
 div.addEventListener('click', foo1, false);*/
