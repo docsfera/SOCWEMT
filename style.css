@@ -184,26 +184,19 @@ html, body {
   	min-height: 0;
   	margin-top: 50px;
 }
-
-.dropZoneImgMain{
-    width: 300px;
-	height: 200px;
-	float: left;
-	background: black;
-	margin: 20px;
-	-webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-.dropZoneImgMain2{
-    width: 300px;
-	height: 200px;
-	background: black;
-	margin: 20px auto;
-}
-.dropZoneImg{
+.MainDropZone-image{
 	width: 100%;
 	height: 100%;
+}
+
+.dropZoneImg{
+	width: 40%;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 50px;
+	/*height: 100%;
+	border-radius: 5px;*/
 }
 .dropZone2{
 	width: 300px;

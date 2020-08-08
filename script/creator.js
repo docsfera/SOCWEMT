@@ -2,9 +2,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   document.getElementById('instrument-img').addEventListener("click", clickimg);
   document.getElementById('instrument-text').addEventListener("click", clicktext);
+  document.getElementById('instrument-delete').addEventListener("click", deleteblock);
   document.getElementById('instrument-b').addEventListener("click", () => {change_text('<b>','</b>',event)});
   document.getElementById('instrument-em').addEventListener("click", () => {change_text('<em>','</em>',event)});
   document.querySelector('textarea.CreatorTextarea').onclick = event => {rememberlast(event)};
+  document.querySelector('div.dropZone').onclick = event => {rememberlast(event)};
   
 });
 
@@ -26,6 +28,8 @@ function clickimg(){
     var dropZone = $('.dropZone'),
         maxFileSize = 1000000; // максимальный размер фалйа - 1 мб.
 	findimg(dropZone.length-1);
+
+    form_div_img.onclick = event => {rememberlast(event)};
 }
 
 function findimg(i){
@@ -76,21 +80,19 @@ function findimg(i){
                 data: form_data,
                 type: 'post',
                 success: function(rrr){
-                    if (dropZone[i].classList.contains('classcheck')){
-                        dropZone[i].className = 'dropZoneImgMain';
+                    if (dropZone[i].classList.contains('MainDropZone')){
+                        dropZone[i].className = '';
                         dropZone[i].innerHTML = '';
                         var drop_zone_img = document.createElement('img');
                         drop_zone_img.src = rrr;
-                        drop_zone_img.className = 'dropZoneImg';
+                        drop_zone_img.className = 'MainDropZone-image';
                         dropZone[i].append(drop_zone_img);
-                        alert(rrr);
                     }else{
-                        dropZone[i].className = 'dropZoneImgMain2';
-                        dropZone[i].innerHTML = '';
+                        dropZone[i].parentNode.removeChild(dropZone[i]);  // remove from DOM
                         var drop_zone_img = document.createElement('img');
                         drop_zone_img.src = rrr;
                         drop_zone_img.className = 'dropZoneImg';
-                        dropZone[i].append(drop_zone_img);
+                        document.getElementById('div-canvas').append(drop_zone_img);
                     }
                 }
         });
@@ -247,6 +249,10 @@ function change_text(tag1, tag2,event)
 //alert(document.querySelector('div.instruments').innerHTML);
 
 
+
+
+
+
 function newphp(){
     innerdata = document.querySelector('div.CreatorBody').innerHTML;
     $.ajax({
@@ -280,8 +286,22 @@ function filter(){   // Заменяет textaries на divы и передае�
 
 
 function rememberlast(event) {
-    if (document.querySelector('textarea.textarea-active')){
-        document.querySelector('textarea.textarea-active').classList.remove("textarea-active");
-    } 
-    event.currentTarget.classList.add('textarea-active');
+
+    if (document.querySelector('.active')){
+        document.querySelector('.active').classList.remove("active");
+    }
+    event.currentTarget.classList.add('active');
+    
+}
+
+function deleteblock(){
+    let deleteblock = document.querySelector('.active'); 
+
+    if (deleteblock.classList.contains('MainCreatorTextarea') || deleteblock.classList.contains('MainDropZone')){
+        alert('Невозможно удалить данный блок');
+    }else{
+        deleteblock.parentNode.removeChild(deleteblock);
+    }
+    
+
 }
