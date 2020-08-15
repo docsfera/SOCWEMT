@@ -14,5 +14,7 @@
 	</div>
 
 
-		<div class="CreatorMain divtextaria"><div class="CreatorTextarea">fdfadsfadsf</div><div class="dropZoneImgMain2"><img src="../images/2wgQ-a8RAGQ.jpg" class="dropZoneImg"></div></div></body>
+		<div class="CreatorMain divtextaria">
+					
+				<div class="CreatorTextarea CreatorTextarea-create">fdafd</div><img src="../images/3aW-XO0PlvU.jpg" class="dropZoneImg"></div></body>
 </html>

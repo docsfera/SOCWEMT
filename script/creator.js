@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById('instrument-em').addEventListener("click", () => {change_text('<em>','</em>',event)});
   document.querySelector('textarea.CreatorTextarea').onclick = event => {rememberlast(event)};
   document.querySelector('div.dropZone').onclick = event => {rememberlast(event)};
+   document.getElementById('instrument-rrr').addEventListener("click", () => {replacediv(event)});
   
 });
 
@@ -19,6 +20,7 @@ function clicktext(){
 	document.querySelector('div#div-canvas').append(div_text);
 
     div_text.onclick = event => {rememberlast(event)};
+    div_text.onkeyup = event => {textAreaAdjust(event.target)};
 }
 function clickimg(){
 	var form_div_img = document.createElement('div');
@@ -72,7 +74,7 @@ function findimg(i){
         }
         //form_data.append('text', file_data2);
         $.ajax({
-                url: 'upload.php',
+                url: 'uploaddirectory.php',
                 dataType: 'text',
                 cache: false,
                 contentType: false,
@@ -182,7 +184,30 @@ findimg(0);
 
 
 
+function uploader() {
+    replacer();
+    newphp();
+    file_data = document.querySelector('.MainDropZone-image').currentSrc.split('/')[4];//MainDropZone-image
+    text_data = document.querySelector('textarea.MainCreatorTextarea').value;
+    var form_data = new FormData();
+    form_data.append('file2', file_data);
+    form_data.append('text', text_data);
+    form_data.append('function', 'writedb');
 
+    $.ajax({
+                url: 'savephp.php',
+                dataType: 'text',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'post',
+                success: function(rrr){
+                    alert(rrr);
+                }
+     });
+    
+}
 
 
 
@@ -222,7 +247,7 @@ function change_text(tag1, tag2,event)
           if (tag1=="" || tag2=="") 
                return; 
 
-          var elemText = document.querySelector('textarea.textarea-active'); 
+          var elemText = document.querySelector('textarea.active'); 
           if (elemText==null) 
                return; 
 
@@ -254,7 +279,7 @@ function change_text(tag1, tag2,event)
 
 
 function newphp(){
-    innerdata = document.querySelector('div.CreatorBody').innerHTML;
+    let innerdata = document.querySelector('div#div-canvas').innerHTML;
     $.ajax({
                 url: 'savephp.php',
                 dataType: 'text',
@@ -267,20 +292,14 @@ function newphp(){
         });
 }
 
-function filter(){   // Заменяет textaries на divы и передает в эти дивы значения textaries
-    var main_div = document.querySelector('div.CreatorBody');
-    var textareas = main_div.querySelectorAll('textarea.CreatorTextarea');  // Сохраним значение всех textaries чтобы не потерять
-    for (var i = 0; i < textareas.length; i++){                              // Заменим все textaries на divs
-        var str = document.querySelector('div.CreatorBody').innerHTML;
-        var str_rep = str.replace("textarea","div");
-        var str_rep = str_rep.replace("textarea","div");
-        document.querySelector('div.CreatorBody').innerHTML = str_rep;
-    }
-    for (var i = 0; i < textareas.length; i++) {                            // Присвоим всем divs значения textaries
-        if(i === 0){
-            var divs = document.querySelectorAll('div.CreatorTextarea');
-        }
-        divs[i].innerHTML = textareas[i].value;       
+
+function replacer() {
+    let textareas = document.querySelectorAll('textarea.CreatorTextarea-create');
+    for (var i = 0; i < textareas.length; i++) {
+        let div_text = document.createElement('div');
+        div_text.innerHTML = textareas[i].value;
+        div_text.className = 'CreatorTextarea CreatorTextarea-create';
+        textareas[i].replaceWith(div_text); // method jquery
     }
 }
 
@@ -304,4 +323,39 @@ function deleteblock(){
     }
     
 
+}
+
+function textAreaAdjust(element) {
+  element.style.height = "1px";
+  element.style.height = (25+element.scrollHeight)+"px";
+}
+
+function replacediv(argument) {
+    try{
+        active_block = document.querySelector('.active');
+        if(active_block){
+            is_textarea_block = (active_block.type == 'textarea');
+            is_img_block = active_block.classList.contains('dropZone');
+            is_main_textarea_block = active_block.classList.contains('MainCreatorTextarea')
+            if(is_main_textarea_block) return;
+            if (is_textarea_block){
+                text_active_block = active_block.value;
+                var div_text = document.createElement('div');   
+            }else if(is_img_block){
+                return;
+            }else{
+                document.querySelector('div.active');
+                var div_text = document.createElement('textarea');
+                 
+            }
+            div_text.innerHTML = text_active_block;
+            div_text.className = 'CreatorTextarea CreatorTextarea-create';
+            div_text.onclick = event => {rememberlast(event)};
+            active_block.replaceWith(div_text); // method jquery
+        }else{
+            return;
+        }
+    }catch{
+        alert('нет выбранных блоков');
+    }
 }
