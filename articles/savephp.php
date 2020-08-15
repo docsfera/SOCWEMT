@@ -1,4 +1,7 @@
 <?php
+// можно оформить в виде класса
+
+
 //max(`id`) as `maxid` from `data`
 $host = 'localhost'; // адрес сервера 
 $database = 'docsfera'; // имя базы данных
@@ -6,12 +9,15 @@ $user = 'root'; // имя пользователя
 $password = ''; // пароль
 $usertable = 'articles';
 
-$link = mysqli_connect($host, $user, $password, $database);
+$link = mysqli_connect($host, $user, $password, $database) 
+		    or die("Ошибка " . mysqli_error($link));
  
-$query ="SELECT id FROM articles ORDER BY id DESC LIMIT 1";
-//$query ="SELECT MAX(id) FROM articles";
-$result = mysqli_query($link, $query);
-if($result->num_rows >0) {
+
+function createphp($link,$Post){
+	$query ="SELECT id FROM articles ORDER BY id DESC LIMIT 1";
+	//$query ="SELECT MAX(id) FROM articles";
+	$result = mysqli_query($link, $query);
+	if($result->num_rows >0) {
     	while($row = $result->fetch_assoc()){
     		//echo "<br> id: ". $row["id"] . "<br> name: ". $row["name"] . "<br> text: ". $row["text"];
     		$last_id = $row["id"];
@@ -37,14 +43,39 @@ if($result->num_rows >0) {
 	</div>
 
 
-		<div class="CreatorMain divtextaria">' . $_POST['text'] . '</div></body>
+		<div class="CreatorMain divtextaria">' . $Post . '</div></body>
 </html>';
  
 	$fp = fopen("../articlesphp/create_" . $last_id . ".php", "w");
  
 // записываем в файл текст
-fwrite($fp, $text);
+	fwrite($fp, $text);
  
 // закрываем
-fclose($fp);
+	fclose($fp);
+}
+
+function writerbd($link,$text, $file_name){
+
+	$usertable = 'articles';  // Повторное объявление глобальной переменной
+	$query ="SELECT * FROM messeges";
+	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
+		if($result and $text)
+		{
+		    $result2 = $link->query("INSERT INTO ".$usertable." (img, text, type) VALUES ( '$file_name', '$text', '3' )" );
+		    //$result2 = $link->query("INSERT INTO ".$usertable." (text) VALUES ('txet')" );
+		}   
+		// закрываем подключение
+		mysqli_close($link);
+}
+
+if ($_POST["function"]){
+	writerbd($link, $_POST['text'], $_POST['file2']);
+}else{
+	createphp($link, $_POST['text']);
+}
+
+/*createphp($link, $_POST['text']);
+writerbd($link, $_POST['text'], $_FILES["file"]["name"])*/
+
 ?>

@@ -34,8 +34,8 @@
 								Для загрузки, перетащите файл сюда.
 							</div>
 						</div>
-						<div class="col-md-8">
-							<textarea type="text" name="texttitle" placeholder ='' class="CreatorTextarea MainCreatorTextarea" autofocus></textarea>
+						<div class="col-md-8" >
+							<textarea type="text" name="texttitle" placeholder ='' class="CreatorTextarea MainCreatorTextarea" autofocus onkeyup="textAreaAdjust(this)"></textarea>
 						</div>
 						
 						<!-- <div class="dropZone dropZone2 classcheck">Для загрузки, перетащите файл сюда.</div>
@@ -60,7 +60,9 @@
 				</li>
 				<li class="instruments-drop"> <a id="instrument-b">B</a> </li>
 				<li class="instruments-drop"> <a id="instrument-em">K</a> </li>
-				<li class="instruments-drop"> <a id="instrument-delete">X</a> </li>
+				<li class="instruments-drop"> <a id="instrument-delete">X</a> 
+				</li>
+				<li class="instruments-drop"> <a id="instrument-rrr">rrr</a> </li>
 				
 			</ul>
 
@@ -90,7 +92,7 @@
 			<div class="CreatorBody"></div>
 			<button onclick="filter();newphp()">ggg</button>
 		</div> -->
-
+		<button onclick="uploader()">save</button>
 		<script src="../script/creator.js"></script>
 	</body>
 </html>
