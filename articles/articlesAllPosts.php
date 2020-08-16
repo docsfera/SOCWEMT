@@ -10,10 +10,8 @@ $result2 = $conn->query($sql);
 
     if($result2->num_rows >0) {
     	while($row = $result2->fetch_assoc()){
-    		//echo "<br> id: ". $row["id"] . "<br> name: ". $row["name"] . "<br> text: ". $row["text"];
-    		echo "<div style='border:1px solid #333;'> " .$row["id"] . " : " . $row["img"]  . $row["text"]. "</div>";
-           // echo ($_COOKIE["logincook"]);
 
+    		echo $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " ;
 
     	}
     }

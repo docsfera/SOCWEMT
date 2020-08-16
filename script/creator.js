@@ -136,47 +136,6 @@ findimg(0);
 /*        }
     }
 }*/
-// <textarea id="editableTextarea" style="height:200px; width:600px; border:1px solid gray;" onkeyup='ViewText();'> 
-
-/*$('#upload').on('click', function() {
-    var file_data = $('#sortpicture').prop('files')[0];
-    var file_data2 = $('#sortpicture2').val();
-    var form_data = new FormData();
-    form_data.append('file', file_data);
-    form_data.append('text', file_data2);
-    $.ajax({
-                url: 'upload.php',
-                dataType: 'text',
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,
-                type: 'post',
-                success: function(rrr){
-                    alert(rrr);
-                }
-     });
-});*/
-
-/*function www(){
-    var file_data = $('#sortpicture').prop('files')[0];
-    var file_data2 = $('#sortpicture2').val();
-    var form_data = new FormData();
-    form_data.append('file', file_data);
-    form_data.append('text', file_data2);
-    $.ajax({
-                url: 'upload.php',
-                dataType: 'text',
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,
-                type: 'post',
-                success: function(rrr){
-                    alert(rrr);
-                }
-     });
-}*/
 
 
 
@@ -189,9 +148,12 @@ function uploader() {
     newphp();
     file_data = document.querySelector('.MainDropZone-image').currentSrc.split('/')[4];//MainDropZone-image
     text_data = document.querySelector('textarea.MainCreatorTextarea').value;
+    title_data = document.querySelector('textarea.ArticleCreatorTextarea').value;
     var form_data = new FormData();
     form_data.append('file2', file_data);
+    form_data.append('title', title_data);
     form_data.append('text', text_data);
+
     form_data.append('function', 'writedb');
 
     $.ajax({
@@ -208,31 +170,6 @@ function uploader() {
      });
     
 }
-
-
-
-
-
-
-/*
-$('#upload').on('click', function() {
-    var file_data = $('#sortpicture').prop('files')[0];
-    var form_data = new FormData();
-    form_data.append('file', file_data);
-    alert(form_data);
-    $.ajax({
-                url: 'upload.php',
-                dataType: 'text',
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,
-                type: 'post',
-                success: function(php_script_response){
-                    alert(php_script_response);
-                }
-     });
-});*/
 
 
 
@@ -271,7 +208,6 @@ function change_text(tag1, tag2,event)
           ViewText(elemText);
         //document.querySelector('div.CreatorBody').innerHTML = document.querySelector('textarea.CreatorTextarea').value;
      } 
-//alert(document.querySelector('div.instruments').innerHTML);
 
 
 

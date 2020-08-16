@@ -55,14 +55,14 @@ function createphp($link,$Post){
 	fclose($fp);
 }
 
-function writerbd($link,$text, $file_name){
+function writerbd($link, $title, $text, $file_name){
 
 	$usertable = 'articles';  // Повторное объявление глобальной переменной
 	$query ="SELECT * FROM messeges";
 	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
 		if($result and $text)
 		{
-		    $result2 = $link->query("INSERT INTO ".$usertable." (img, text, type) VALUES ( '$file_name', '$text', '3' )" );
+		    $result2 = $link->query("INSERT INTO ".$usertable." (img, title, text, type) VALUES ( '$file_name', '$title', '$text', '3' )" );
 		    //$result2 = $link->query("INSERT INTO ".$usertable." (text) VALUES ('txet')" );
 		}   
 		// закрываем подключение
@@ -70,7 +70,7 @@ function writerbd($link,$text, $file_name){
 }
 
 if ($_POST["function"]){
-	writerbd($link, $_POST['text'], $_POST['file2']);
+	writerbd($link, $_POST['title'], $_POST['text'], $_POST['file2']);
 }else{
 	createphp($link, $_POST['text']);
 }

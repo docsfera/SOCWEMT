@@ -117,11 +117,12 @@
 
 			<div class="container-fluid" id = "ArticlesBody">
 				<div class="row row-style" >
-					<div class="col-md-12 ">
+					<!-- <div class="col-md-12 col-md-12-style">
 						<div class="col-md-2 ">
 							<img src="../images/jumbo.jpg" class="col-md-2-img">
 						</div>
 						<div class="col-md-7 border-right">
+							<div> <b>fffffffff</b> </div>
 							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
 						</div>
 					</div>
@@ -144,7 +145,7 @@
 						<div class="col-md-7 border-right">
 							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
 						</div>
-					</div>
+					</div> -->
 					
 				</div>
 			</div>

@@ -28,7 +28,7 @@
 		<div class="container">
 			<div class="row" >
 				<!-- <div class="col-md-12 block-main-article"> -->
-
+					<textarea type="text" name="texttitle" placeholder ='' class="CreatorTextarea ArticleCreatorTextarea" autofocus onkeyup="textAreaAdjust(this)"></textarea>
 						<div class="col-md-4">
 							<div class="dropZone MainDropZone">
 								Для загрузки, перетащите файл сюда.
@@ -37,7 +37,6 @@
 						<div class="col-md-8" >
 							<textarea type="text" name="texttitle" placeholder ='' class="CreatorTextarea MainCreatorTextarea" autofocus onkeyup="textAreaAdjust(this)"></textarea>
 						</div>
-						
 						<!-- <div class="dropZone dropZone2 classcheck">Для загрузки, перетащите файл сюда.</div>
 						<textarea type="text" name="texttitle" placeholder ='' class="CreatorTextarea " id = "sortpicture2"></textarea> -->
 						<!-- </div> -->

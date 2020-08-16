@@ -1,4 +1,55 @@
-function countRabbits() {
+
+function loaderarticles(){
+  $.ajax({
+                url: 'articlesAllPosts.php',
+                dataType: 'text',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: 'ff',
+                type: 'post',
+                success: function(rrr){
+                    rr = rrr.split(' : ');
+                    for (let i = 0; i < rr.length-4; i = i + 4) {
+
+                      let ArticlesBody = document.getElementById('ArticlesBody');
+                      let ArticlesBody2 = ArticlesBody.querySelector('div.row');
+                      let div_col_md_12 = document.createElement('div');
+                      div_col_md_12.className = 'col-md-12 col-md-12-style';
+
+
+                      let div_col_md_2 = document.createElement('div');
+                      div_col_md_2.className = 'col-md-2';
+                      let img_col_md_2 = document.createElement('img');
+                      img_col_md_2.className = 'col-md-2-img';
+                      img_col_md_2.src = `../images/${rr[i + 1]}`;
+                      div_col_md_2.append(img_col_md_2);
+                      div_col_md_12.append( div_col_md_2);
+
+
+                      let div_col_md_7 = document.createElement('div');
+                      div_col_md_7.className = 'col-md-7 border-right';
+                      if (rr[i + 2].length > 300 ){
+                        div_col_md_7.innerHTML = `<div><b>${rr[i + 3]}</b></div>${rr[i + 2].substring(0, 300)}...`;
+                      }else{
+                        div_col_md_7.innerText = rr[i + 2];
+                      }
+                      
+                      div_col_md_12.append(div_col_md_7);
+
+                      
+                      ArticlesBody2.append(div_col_md_12);
+                      //debugger;
+                    }
+                    
+
+                }
+     });
+}
+
+loaderarticles();
+
+/*function countRabbits() {
        
 
       var element = document.getElementById('chat');
@@ -12,15 +63,15 @@ function countRabbits() {
 
       
 
-}
+}*/
 /*var div = document.getElementById('aa');
 div.addEventListener('click', foo1, false);*/
 var elems = document.querySelectorAll('div.aa');
 
 // на каждый элемент повесить обработчик на стадии перехвата
 function GoEvent(k){
-  for (var j = 0; j < elems.length; j++) {
-    elems[j].onclick = function gg() {foo1(event.target.textContent);}    // addEventListener нужно попробовать??
+  for (let j = 0; j < elems.length; j++) {
+    elems[j].onclick = () => {foo1(event.target.textContent);}    // addEventListener нужно попробовать?? () => {}
   }
   if(Number.isInteger(Number(k))){
     elems[k].onclick = null;
@@ -46,25 +97,11 @@ function foo1(i, event){
             url: 'test.php',	// Относительно articles (php файла где слушается событие)
             //dataType: 'json',     из-за этой хуеты не работало возвращаемое представление в виде строки и тд, только цифры работали
             success: function (text) {        
-          		var count_articles = Number(text.split(',').length) / 3;  // Кол-во постов на данную тему
+          		let count_articles = Number(text.split(',').length) / 3;  // Кол-во постов на данную тему
               document.getElementById('ArticlesBody').innerHTML = '';
-              for (var l = 0; l < count_articles;l++){
+              for (let l = 0; l < count_articles;l++){
 
-                /*var div_outside = document.createElement('div');
-                var div_inside = document.createElement('div');
-                var div_inside_2 = document.createElement('div');
-                var img = document.createElement('img');
-                var a = document.createElement('a');
-                a.href = '../articlesphp/create_' + String(text.split(',')[0 + l * 3]) + '.php';
-                img.src = '../images/' + String(text.split(',')[1 + l * 3]);
-                img.className = "cpp2";
-                a.append(img);
-                div_inside_2.innerHTML = text.split(',')[2 + l * 3];
-                div_outside.className = "bottomNews article";
-                div_inside.append(a);
-                div_outside.append(div_inside);
-                div_outside.append(div_inside_2);
-                document.getElementById('ArticlesBody').append(div_outside);*/
+                
                 var div_outside = document.createElement('div');
                 div_outside.className = 'row row-style';
 
@@ -76,7 +113,14 @@ function foo1(i, event){
 
                 var div_col_md_7 = document.createElement('div');
                 div_col_md_7.className = 'col-md-7 border-right';
-                div_col_md_7.innerHTML = text.split(',')[2 + l * 3];
+
+                if (text.split(',')[2 + l * 3].length > 300 ){
+                  div_col_md_7.innerHTML = text.split(',')[2 + l * 3].substring(0, 300) + "...";
+                }else{
+                  div_col_md_7.innerHTML = text.split(',')[2 + l * 3];
+                }
+                //debugger;
+                
 
                 var a = document.createElement('a');
                 a.href = '../articlesphp/create_' + String(text.split(',')[0 + l * 3]) + '.php';

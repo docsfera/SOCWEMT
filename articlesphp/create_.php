@@ -16,5 +16,5 @@
 
 		<div class="CreatorMain divtextaria">
 					
-				<div class="CreatorTextarea CreatorTextarea-create">fdfads</div></div></body>
+				</div></body>
 </html>

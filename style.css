@@ -141,7 +141,7 @@ html, body {
     margin-right: auto 
 }
 .CreatorTextarea{
-	min-height: 200px;
+	/*min-height: 200px;*/
 	width: 100%;
 	resize: none;
 	border: 2px solid #ccc;
@@ -152,11 +152,22 @@ html, body {
 
     overflow:hidden;
 }
+.ArticleCreatorTextarea{
+	min-height: 30px;
+	font-size: 1.5em;
+	font-weight: bold;
+    margin-bottom: 20px;
+}
+.MainCreatorTextarea{
+	min-height: 200px;
+}
+
 .active{
 	border: 2px solid black;
 }
 .CreatorTextarea-create{
 	width: 50%;
+	min-height: 200px;
 	margin-top: 50px;
 	margin-left: auto;
   	margin-right: auto;
