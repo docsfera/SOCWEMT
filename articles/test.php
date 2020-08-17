@@ -17,12 +17,11 @@ $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($lin
 
 $result2 = $link->query($query);
 $row = $result2->fetch_assoc();
-/*echo $row["img"];*/
-//$A[0] = array("id"=>$row["id"], "img"=>$row["img"], "text"=>$row["text"], 'type'=>$row["type"]);
-$A = strval($row["id"]) . ',' . strval($row["img"]) . ',' . strval($row["text"]);
+
+$A = $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " ;
 if($result2->num_rows >0){
 	while($row = $result2->fetch_assoc()){
-		$A = $A . ',' . strval($row["id"]) . ',' . strval($row["img"]) . ',' . strval($row["text"]);
+		$A = $A . $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " ;
 	}
 }
 echo $A;

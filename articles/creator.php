@@ -65,7 +65,7 @@
 				
 			</ul>
 
-			<div class="row" style="background: orange; height: 1000px; z-index: -1;">
+			<div class="row" style="background: #F0F0F0; min-height: 1000px; z-index: -1;">
 				
 				<div id='div-canvas' class="col-md-12" style="position: static;">
 					
@@ -91,7 +91,7 @@
 			<div class="CreatorBody"></div>
 			<button onclick="filter();newphp()">ggg</button>
 		</div> -->
-		<button onclick="uploader()">save</button>
+		<button onclick="uploader('DivTextarea')">save</button>
 		<script src="../script/creator.js"></script>
 	</body>
 </html>

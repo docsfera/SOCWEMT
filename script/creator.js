@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById('instrument-em').addEventListener("click", () => {change_text('<em>','</em>',event)});
   document.querySelector('textarea.CreatorTextarea').onclick = event => {rememberlast(event)};
   document.querySelector('div.dropZone').onclick = event => {rememberlast(event)};
-   document.getElementById('instrument-rrr').addEventListener("click", () => {replacediv(event)});
+  document.getElementById('instrument-rrr').addEventListener("click", () => {replacediv(event)});
   
 });
 
@@ -143,8 +143,8 @@ findimg(0);
 
 
 
-function uploader() {
-    replacer();
+function uploader(DivTextarea) {
+    replacer(DivTextarea);
     newphp();
     file_data = document.querySelector('.MainDropZone-image').currentSrc.split('/')[4];//MainDropZone-image
     text_data = document.querySelector('textarea.MainCreatorTextarea').value;
@@ -229,12 +229,12 @@ function newphp(){
 }
 
 
-function replacer() {
+function replacer(DivTextarea = '') {
     let textareas = document.querySelectorAll('textarea.CreatorTextarea-create');
     for (var i = 0; i < textareas.length; i++) {
         let div_text = document.createElement('div');
         div_text.innerHTML = textareas[i].value;
-        div_text.className = 'CreatorTextarea CreatorTextarea-create';
+        div_text.className = `CreatorTextarea CreatorTextarea-create ${DivTextarea}`;
         textareas[i].replaceWith(div_text); // method jquery
     }
 }
@@ -285,7 +285,7 @@ function replacediv(argument) {
                  
             }
             div_text.innerHTML = text_active_block;
-            div_text.className = 'CreatorTextarea CreatorTextarea-create';
+            div_text.className = 'CreatorTextarea CreatorTextarea-create ';
             div_text.onclick = event => {rememberlast(event)};
             active_block.replaceWith(div_text); // method jquery
         }else{
