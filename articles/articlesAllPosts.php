@@ -11,7 +11,7 @@ $result2 = $conn->query($sql);
     if($result2->num_rows >0) {
     	while($row = $result2->fetch_assoc()){
 
-    		echo $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " ;
+    		echo $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " . $row["type"] . " : " . $row["stars"] . " : " ;
 
     	}
     }

@@ -40,76 +40,8 @@
 				</div>
 			</div>
 
-			<div class="container-fluid">
+			<div class="container-fluid" id = "MainArticlesBody">
 				<div class="row row-style" >
-					<div class="col-md-7 ">
-						<div class="col-md-12 border border-right-0" style="padding: 20px 0">
-
-							<div class="col-md-5">
-								<img src="../images/jumbo.jpg" class="col-md-2-img">
-							</div>
-
-							<h5>Will Herman Cain’s Death Change Republican Views on the Virus and Masks?</h5>
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-
-						</div>
-						<div class="col-md-12 border border-right-0 " style="padding: 20px 0">
-
-							<div class="col-md-5">
-								<img src="../images/jumbo.jpg" class="col-md-2-img">
-							</div>
-
-							<h5>Will Herman Cain’s Death Change Republican Views on the Virus and Masks?</h5>
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-
-						</div>
-						<div class="col-md-12 border border-right-0" style="padding: 20px 0">
-
-							<div class="col-md-7">
-								<img src="../images/jumbo.jpg" class="col-md-2-img">
-							</div>
-
-							<h5>Will Herman Cain’s Death Change Republican Views on the Virus and Masks?</h5>
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-							Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-
-						</div>
-					</div>
-					<div class="col-md-5 ">
-						<div class="col-md-12 border border-right-0" style="padding: 20px 0">
-
-							<div class="col-md-6 ">
-								<img src="../images/jumbo.jpg" class="col-md-2-img">
-							</div>
-						<h5>Will Herman Cain’s Death Change Republican Views on the Virus and Masks?</h5>
-						Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-
-						</div>
-						<div class="col-md-12 border border-right-0" style="padding: 20px 0">
-
-							<div class="col-md-6 ">
-								<img src="../images/jumbo.jpg" class="col-md-2-img">
-							</div>
-						<h5>Will Herman Cain’s Death Change Republican Views on the Virus and Masks?</h5>
-						Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-
-						</div>
-						<div class="col-md-12 border border-right-0" style="padding: 20px 0">
-
-							<div class="col-md-6 ">
-								<img src="../images/jumbo.jpg" class="col-md-2-img">
-							</div>
-						<h5>Will Herman Cain’s Death Change Republican Views on the Virus and Masks?</h5>
-						Hard do me sigh with west same lady. Hard do me sigh with west same lady. If in so bred at dare rose lose good. Mrs assured add private married removed believe did she. How one dull get busy dare far. Her too add narrow having wished. Effect if in up no depend seemed. Whatever throwing we on resolved entrance together gra
-
-						</div>
-						
-					</div>
 
 				</div>
 			</div>

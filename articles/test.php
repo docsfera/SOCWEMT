@@ -18,10 +18,10 @@ $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($lin
 $result2 = $link->query($query);
 $row = $result2->fetch_assoc();
 
-$A = $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " ;
+$A = $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " . $row["type"] . " : " . $row["stars"] . " : ";
 if($result2->num_rows >0){
 	while($row = $result2->fetch_assoc()){
-		$A = $A . $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " ;
+		$A = $A . $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " . $row["type"] . " : " . $row["stars"] . " : " ;
 	}
 }
 echo $A;
