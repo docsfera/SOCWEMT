@@ -17,12 +17,28 @@ $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($lin
 
 $result2 = $link->query($query);
 $row = $result2->fetch_assoc();
-
-$A = $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " . $row["type"] . " : " . $row["stars"] . " : ";
+$data = [];
+$arr = ['id' => $row["id"], 
+    		'img' => $row["img"],
+    		'text' => $row["text"],
+    		'title' => $row["title"],
+    		'type' => $row["type"],
+    		'stars' => $row["stars"]
+    								];
+    array_push($data, $arr);								
 if($result2->num_rows >0){
 	while($row = $result2->fetch_assoc()){
-		$A = $A . $row["id"] . " : " . $row["img"]  . " : " . $row["text"] . " : " . $row["title"] . " : " . $row["type"] . " : " . $row["stars"] . " : " ;
+		
+		$arr = ['id' => $row["id"], 
+    		'img' => $row["img"],
+    		'text' => $row["text"],
+    		'title' => $row["title"],
+    		'type' => $row["type"],
+    		'stars' => $row["stars"]
+    								];
+
+    		array_push($data, $arr);
 	}
 }
-echo $A;
+    echo json_encode($data, JSON_NUMERIC_CHECK);
 ?>

@@ -1,5 +1,5 @@
 maincreatorarticles = data =>{
-//debugger;
+
   let mainArticlesBody = document.getElementById('MainArticlesBody');
   let mainArticlesBody2 = mainArticlesBody.querySelector('div.row');
 
@@ -16,12 +16,12 @@ maincreatorarticles = data =>{
   mainArticlesBody2.append(div_col_md_5);
 
   //randomInteger(0, data.length);
-  let div_col_md_12 = document.createElement('div');
+  
 
   for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data[i].length; j++) {
 
-      
+      let div_col_md_12 = document.createElement('div');
       div_col_md_12.className = 'col-md-12 border border-right-0';
       div_col_md_12.style = "padding: 20px 0";
 
@@ -62,35 +62,71 @@ maincreatorarticles = data =>{
 
       if (i === 0) {
       
-      div_col_md_12.className = 'col-md-12 col-md-12-style';
+        div_col_md_12.className = 'col-md-12 col-md-12-style';
 
-      let div_col_md_2 = document.createElement('div');
-      div_col_md_2.className = 'col-md-2';
-      
-      div_col_md_2.append(img);
-      div_col_md_12.append(div_col_md_2);
+        let div_col_md_2 = document.createElement('div');
+        div_col_md_2.className = 'col-md-2';
+        
+        div_col_md_2.append(img);
+        div_col_md_12.append(div_col_md_2);
 
-      div.className = 'col-md-7 border-right';
-                   
-      div_col_md_12.append(div);
+        div.className = 'col-md-7 border-right';
+                     
+        div_col_md_12.append(div);
 
-      ArticlesBody2.append(div_col_md_12);
+        ArticlesBody2.append(div_col_md_12);
       }
 
 
     }
   }
 }
+creatorarticles = data =>{
+  let ArticlesBody = document.getElementById('ArticlesBody');
+  let ArticlesBody2 = ArticlesBody.querySelector('div.row');
 
+  for (let i = 0; i < data.length; i++) {
+     
+      let div_col_md_12 = document.createElement('div');
+      div_col_md_12.className = 'col-md-12 col-md-12-style';
+      div_col_md_12.style = "padding: 20px 0";
+
+      let div_col_md_5_2 = document.createElement('div');
+      div_col_md_5_2.className = 'col-md-5';
+
+      let div_col_md_2 = document.createElement('div');
+      div_col_md_2.className = 'col-md-2';
+
+      
+
+      let img = document.createElement('img');
+      img.className = "col-md-2-img"
+      img.src=`../images/${data[i].img}`;
+
+      div_col_md_2.append(img);
+      div_col_md_12.append(div_col_md_2);
+
+      let div = document.createElement('div');
+
+      let text_lenght = 300;
+
+      if (data[i].text.length > text_lenght ){
+        div.innerHTML = `<div><a href = '../articlesphp/create_${data[i].id}.php'><b>${data[i].title}</b></a></div>${data[i].text.substring(0, text_lenght)}...`;
+      }else{
+        div.innerHTML = `<div><a href = '../articlesphp/create_${data[i].id}.php'><b>${data[i].title}</b></a></div>${data[i].text}`;
+      }
+      div.className = 'col-md-7 border-right';
+                     
+      div_col_md_12.append(div);
+
+      ArticlesBody2.append(div_col_md_12);
+  }
+
+}s
 
   $.ajax({
         url: 'articlesAllPosts.php',
         dataType: 'json',
-        /*cache: false,
-        contentType: false,
-        processData: false,*/
-        //data: 'ff',
-        //type: 'post',
         success: text => maincreatorarticles(text),
         error: respons => alert('fail')
      });
@@ -126,7 +162,7 @@ function foo1(i, event){
             type: 'POST',
             data: {text: i},
             url: 'test.php',	// Относительно articles (php файла где слушается событие)
-            //dataType: 'json',     из-за этой хуеты не работало возвращаемое представление в виде строки и тд, только цифры работали
+            dataType: 'json',    // из-за этой хуеты не работало возвращаемое представление в виде строки и тд, только цифры работали
             success: text => creatorarticles(text),
             error: respons => alert('fail')
 
