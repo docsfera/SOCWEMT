@@ -1,10 +1,10 @@
 maincreatorarticles = data =>{
-  let rr = data.split(' : ');
-  const colums_articles = 6;
-  let count_articles = Number(rr.length) / colums_articles;
-
+//debugger;
   let mainArticlesBody = document.getElementById('MainArticlesBody');
   let mainArticlesBody2 = mainArticlesBody.querySelector('div.row');
+
+  let ArticlesBody = document.getElementById('ArticlesBody');
+  let ArticlesBody2 = ArticlesBody.querySelector('div.row');
 
   let div_col_md_7 = document.createElement('div');
   div_col_md_7.className = 'col-md-7 col-md-7-style';
@@ -15,11 +15,13 @@ maincreatorarticles = data =>{
   mainArticlesBody2.append(div_col_md_7);
   mainArticlesBody2.append(div_col_md_5);
 
-  for (let i = 0; i < count_articles-1; i++) {
+  //randomInteger(0, data.length);
+  let div_col_md_12 = document.createElement('div');
 
-    if(rr[i * colums_articles + 5] != '0'){ // может быть проверку на сервере делать?
-     
-      let div_col_md_12 = document.createElement('div');
+  for (let i = 0; i < data.length; i++) {
+    for (let j = 0; j < data[i].length; j++) {
+
+      
       div_col_md_12.className = 'col-md-12 border border-right-0';
       div_col_md_12.style = "padding: 20px 0";
 
@@ -28,34 +30,54 @@ maincreatorarticles = data =>{
 
       let img = document.createElement('img');
       img.className = "col-md-2-img"
-      img.src=`../images/${rr[i * colums_articles + 1]}`;
+      img.src=`../images/${data[i][j].img}`;
 
       let div = document.createElement('div');
 
-      if(rr[i * colums_articles + 5] === '2'){
-        text_lenght = 1000;
-      }
-      if(rr[i * colums_articles + 5] === '1'){
-        text_lenght = 300;
-      }
+      if(i === 2) text_lenght = 1000;
+      if(i === 1 || i === 0) text_lenght = 300;
 
-      if (rr[i * colums_articles + 2].length > text_lenght ){
-        div.innerHTML = `<div><a href = '../articlesphp/create_${rr[i * colums_articles]}.php'><b>${rr[i * colums_articles + 3]}</b></a></div>${rr[i *colums_articles + 2].substring(0, text_lenght)}...`;
+      if (data[i][j].text.length > text_lenght ){
+        div.innerHTML = `<div><a href = '../articlesphp/create_${data[i][j].id}.php'><b>${data[i][j].title}</b></a></div>${data[i][j].text.substring(0, text_lenght)}...`;
       }else{
-        div.innerHTML = `<div><a href = '../articlesphp/create_${rr[i * colums_articles]}.php'><b>${rr[i * colums_articles + 3]}</b></a></div>${rr[i *colums_articles + 2]}`;
+        div.innerHTML = `<div><a href = '../articlesphp/create_${data[i][j].id}.php'><b>${data[i][j].title}</b></a></div>${data[i][j].text}`;
       }
        //
-      div_col_md_5_2.append(img);
+      /*div_col_md_5_2.append(img);
       div_col_md_12.append(div_col_md_5_2);
-      div_col_md_12.append(div);
+      div_col_md_12.append(div);*/
 
-      if(rr[i * colums_articles + 5] === '2'){
+      if(i === 2){
+        div_col_md_5_2.append(img);
+        div_col_md_12.append(div_col_md_5_2);
+        div_col_md_12.append(div);
         div_col_md_7.append(div_col_md_12);
       }
-
-      if(rr[i * colums_articles + 5] === '1'){
+      if(i === 1){
+        div_col_md_5_2.append(img);
+        div_col_md_12.append(div_col_md_5_2);
+        div_col_md_12.append(div);
         div_col_md_5.append(div_col_md_12);
-      } 
+      }
+
+      if (i === 0) {
+      
+      div_col_md_12.className = 'col-md-12 col-md-12-style';
+
+      let div_col_md_2 = document.createElement('div');
+      div_col_md_2.className = 'col-md-2';
+      
+      div_col_md_2.append(img);
+      div_col_md_12.append(div_col_md_2);
+
+      div.className = 'col-md-7 border-right';
+                   
+      div_col_md_12.append(div);
+
+      ArticlesBody2.append(div_col_md_12);
+      }
+
+
     }
   }
 }
@@ -63,78 +85,17 @@ maincreatorarticles = data =>{
 
   $.ajax({
         url: 'articlesAllPosts.php',
-        dataType: 'text',
-        cache: false,
+        dataType: 'json',
+        /*cache: false,
         contentType: false,
-        processData: false,
-        data: 'ff',
-        type: 'post',
+        processData: false,*/
+        //data: 'ff',
+        //type: 'post',
         success: text => maincreatorarticles(text),
         error: respons => alert('fail')
      });
 
 
-
-
-
-
-
-
-
-
-
-creatorarticles = data => {
-  let rr = data.split(' : ');
-  const colums_articles = 6;
-  let count_articles = Number(rr.length) / colums_articles;
-
-  for (let i = 0; i < count_articles-1; i++) {
-    if(rr[i * colums_articles + 5] === '0'){ // может быть проверку на сервере делать?
-      let ArticlesBody = document.getElementById('ArticlesBody');
-      let ArticlesBody2 = ArticlesBody.querySelector('div.row');
-      let div_col_md_12 = document.createElement('div');
-      div_col_md_12.className = 'col-md-12 col-md-12-style';
-
-      let div_col_md_2 = document.createElement('div');
-      div_col_md_2.className = 'col-md-2';
-      let img_col_md_2 = document.createElement('img');
-
-      img_col_md_2.className = 'col-md-2-img';
-      img_col_md_2.src = `../images/${rr[i * colums_articles + 1]}`;
-      div_col_md_2.append(img_col_md_2);
-      div_col_md_12.append( div_col_md_2);
-
-      let div_col_md_7 = document.createElement('div');
-      div_col_md_7.className = 'col-md-7 border-right';
-      if (rr[i * colums_articles + 2].length > 300 ){
-        div_col_md_7.innerHTML = `<div><a href = '../articlesphp/create_${rr[i * colums_articles]}.php'><b>${rr[i * colums_articles + 3]}</b></a></div>${rr[i *colums_articles + 2].substring(0, 300)}...`;
-      }else{
-        div_col_md_7.innerText = rr[i * colums_articles + 2];
-      }
-                        
-      div_col_md_12.append(div_col_md_7);
-
-      ArticlesBody2.append(div_col_md_12);
-      }
-    }
-}
-
-
-function loaderarticles(){
-  $.ajax({
-        url: 'articlesAllPosts.php',
-        dataType: 'text',
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: 'ff',
-        type: 'post',
-        success: text => creatorarticles(text),
-        error: respons => alert('fail')
-     });
-}
-
-loaderarticles();
 
 var elems = document.querySelectorAll('div.aa');
 
@@ -172,3 +133,8 @@ function foo1(i, event){
         });
   	}
 
+function randomInteger(min, max) {
+  // случайное число от min до (max+1)
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
