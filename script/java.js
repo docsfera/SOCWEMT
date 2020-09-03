@@ -15,7 +15,31 @@ maincreatorarticles = data =>{
   mainArticlesBody2.append(div_col_md_7);
   mainArticlesBody2.append(div_col_md_5);
 
-  //randomInteger(0, data.length);
+  let randomsnumbers2 = [];
+  let randomsnumbers1 = [];
+
+  for (var i = 0; i < 3; i++) {
+    
+    let number = randomInteger(0, data[1].length);
+    
+    if (randomsnumbers1.indexOf(number) == -1){
+      randomsnumbers1.push(number);
+    }else{
+      i--;
+    }
+  }
+
+  for (var i = 0; i < 3; i++) {
+    let number = randomInteger(0, data[2].length);
+    
+    if (randomsnumbers2.indexOf(number) == -1){
+      randomsnumbers2.push(number);
+    }else{
+      i--;
+    }
+  }
+console.log(randomsnumbers2);
+console.log(randomsnumbers1);
   
 
   for (let i = 0; i < data.length; i++) {
@@ -81,6 +105,7 @@ maincreatorarticles = data =>{
     }
   }
 }
+
 creatorarticles = data =>{
   let ArticlesBody = document.getElementById('ArticlesBody');
   let ArticlesBody2 = ArticlesBody.querySelector('div.row');
@@ -122,7 +147,7 @@ creatorarticles = data =>{
       ArticlesBody2.append(div_col_md_12);
   }
 
-}s
+}
 
   $.ajax({
         url: 'articlesAllPosts.php',
@@ -159,15 +184,14 @@ function foo1(i, event){
       
     
 		$.ajax({
-            type: 'POST',
-            data: {text: i},
-            url: 'test.php',	// Относительно articles (php файла где слушается событие)
-            dataType: 'json',    // из-за этой хуеты не работало возвращаемое представление в виде строки и тд, только цифры работали
-            success: text => creatorarticles(text),
-            error: respons => alert('fail')
-
-        });
-  	}
+      type: 'POST',
+      data: {text: i},
+      url: 'test.php',	// Относительно articles (php файла где слушается событие)
+      dataType: 'json',    // из-за этой хуеты не работало возвращаемое представление в виде строки и тд, только цифры работали
+      success: text => creatorarticles(text),
+      error: respons => alert('fail')
+    });
+}
 
 function randomInteger(min, max) {
   // случайное число от min до (max+1)

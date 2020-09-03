@@ -74,7 +74,7 @@ function writerbd($link, $title, $text, $file_name){
 	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
 		if($result and $text)
 		{
-		    $result2 = $link->query("INSERT INTO ".$usertable." (img, title, text, type, stars) VALUES ( '$file_name', '$title', '$text', '1' , '1')" );
+		    $result2 = $link->query("INSERT INTO ".$usertable." (img, title, text, type, stars) VALUES ( '$file_name', '$title', '$text', '2' , '2')" );
 		    //$result2 = $link->query("INSERT INTO ".$usertable." (text) VALUES ('txet')" );
 		}   
 		// закрываем подключение
