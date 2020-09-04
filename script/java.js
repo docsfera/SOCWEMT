@@ -1,117 +1,55 @@
+let mainArticlesBody = document.getElementById('MainArticlesBody');
+let mainArticlesBody2 = mainArticlesBody.querySelector('div.row');
+
+let ArticlesBody = document.getElementById('ArticlesBody');
+let ArticlesBody2 = ArticlesBody.querySelector('div.row');
+let div_col_md_7 = document.createElement('div');
+div_col_md_7.className = 'col-md-7 col-md-7-style';
+
+let div_col_md_5 = document.createElement('div');
+div_col_md_5.className = 'col-md-5 col-md-5-style';
+
+mainArticlesBody2.append(div_col_md_7);
+mainArticlesBody2.append(div_col_md_5);
+
 maincreatorarticles = data =>{
+  let randomsnumbers2 = randomArr(data[1], 3);
+  let randomsnumbers1 = randomArr(data[2], 4);
 
-  let mainArticlesBody = document.getElementById('MainArticlesBody');
-  let mainArticlesBody2 = mainArticlesBody.querySelector('div.row');
-
-  let ArticlesBody = document.getElementById('ArticlesBody');
-  let ArticlesBody2 = ArticlesBody.querySelector('div.row');
-
-  let div_col_md_7 = document.createElement('div');
-  div_col_md_7.className = 'col-md-7 col-md-7-style';
-
-  let div_col_md_5 = document.createElement('div');
-  div_col_md_5.className = 'col-md-5 col-md-5-style';
-
-  mainArticlesBody2.append(div_col_md_7);
-  mainArticlesBody2.append(div_col_md_5);
-
-  let randomsnumbers2 = [];
-  let randomsnumbers1 = [];
-
-  for (var i = 0; i < 3; i++) {
-    
-    let number = randomInteger(0, data[1].length);
-    
-    if (randomsnumbers1.indexOf(number) == -1){
-      randomsnumbers1.push(number);
-    }else{
-      i--;
-    }
-  }
-
-  for (var i = 0; i < 3; i++) {
-    let number = randomInteger(0, data[2].length);
-    
-    if (randomsnumbers2.indexOf(number) == -1){
-      randomsnumbers2.push(number);
-    }else{
-      i--;
-    }
-  }
-console.log(randomsnumbers2);
-console.log(randomsnumbers1);
+  randomsnumbers2.forEach(numberartile => div_col_md_7.append(addMainArticles(data[2], numberartile, 700)));
+  randomsnumbers1.forEach(numberartile => div_col_md_5.append(addMainArticles(data[1], numberartile, 300)));
+  data[0].forEach(article => creatorarticles(article));
   
-
-  for (let i = 0; i < data.length; i++) {
-    for (let j = 0; j < data[i].length; j++) {
-
-      let div_col_md_12 = document.createElement('div');
-      div_col_md_12.className = 'col-md-12 border border-right-0';
-      div_col_md_12.style = "padding: 20px 0";
-
-      let div_col_md_5_2 = document.createElement('div');
-      div_col_md_5_2.className = 'col-md-5';
-
-      let img = document.createElement('img');
-      img.className = "col-md-2-img"
-      img.src=`../images/${data[i][j].img}`;
-
-      let div = document.createElement('div');
-
-      if(i === 2) text_lenght = 1000;
-      if(i === 1 || i === 0) text_lenght = 300;
-
-      if (data[i][j].text.length > text_lenght ){
-        div.innerHTML = `<div><a href = '../articlesphp/create_${data[i][j].id}.php'><b>${data[i][j].title}</b></a></div>${data[i][j].text.substring(0, text_lenght)}...`;
-      }else{
-        div.innerHTML = `<div><a href = '../articlesphp/create_${data[i][j].id}.php'><b>${data[i][j].title}</b></a></div>${data[i][j].text}`;
-      }
-       //
-      /*div_col_md_5_2.append(img);
-      div_col_md_12.append(div_col_md_5_2);
-      div_col_md_12.append(div);*/
-
-      if(i === 2){
-        div_col_md_5_2.append(img);
-        div_col_md_12.append(div_col_md_5_2);
-        div_col_md_12.append(div);
-        div_col_md_7.append(div_col_md_12);
-      }
-      if(i === 1){
-        div_col_md_5_2.append(img);
-        div_col_md_12.append(div_col_md_5_2);
-        div_col_md_12.append(div);
-        div_col_md_5.append(div_col_md_12);
-      }
-
-      if (i === 0) {
-      
-        div_col_md_12.className = 'col-md-12 col-md-12-style';
-
-        let div_col_md_2 = document.createElement('div');
-        div_col_md_2.className = 'col-md-2';
-        
-        div_col_md_2.append(img);
-        div_col_md_12.append(div_col_md_2);
-
-        div.className = 'col-md-7 border-right';
-                     
-        div_col_md_12.append(div);
-
-        ArticlesBody2.append(div_col_md_12);
-      }
-
-
-    }
-  }
 }
 
-creatorarticles = data =>{
-  let ArticlesBody = document.getElementById('ArticlesBody');
-  let ArticlesBody2 = ArticlesBody.querySelector('div.row');
+addMainArticles = (data, numberartile, countwords) => {
+    //console.log(data);
+    //debugger;
+    let div_col_md_12 = document.createElement('div');
+    div_col_md_12.className = 'col-md-12 border border-right-0';
+    div_col_md_12.style = "padding: 20px 0";
 
-  for (let i = 0; i < data.length; i++) {
-     
+    let div_col_md_5_2 = document.createElement('div');
+    div_col_md_5_2.className = 'col-md-5';
+
+    let img = document.createElement('img');
+    img.className = "col-md-2-img"
+    img.src=`../images/${data[numberartile].img}`;
+
+    let div = document.createElement('div');
+    let text = data[numberartile].text;
+    if (text.length > countwords ) text = text.substring(0, countwords) + '...';
+    div.innerHTML = `<div><a href = '../articlesphp/create_${data[numberartile].id}.php'><b>${data[numberartile].title}</b></a></div>${text}`;      
+
+    div_col_md_5_2.append(img);
+    div_col_md_12.append(div_col_md_5_2);
+    div_col_md_12.append(div);
+    return div_col_md_12;
+   
+  }
+
+creatorarticles = (article, countwords = 300) => {
+
       let div_col_md_12 = document.createElement('div');
       div_col_md_12.className = 'col-md-12 col-md-12-style';
       div_col_md_12.style = "padding: 20px 0";
@@ -122,30 +60,22 @@ creatorarticles = data =>{
       let div_col_md_2 = document.createElement('div');
       div_col_md_2.className = 'col-md-2';
 
-      
-
       let img = document.createElement('img');
       img.className = "col-md-2-img"
-      img.src=`../images/${data[i].img}`;
+      img.src=`../images/${article.img}`;
 
       div_col_md_2.append(img);
       div_col_md_12.append(div_col_md_2);
 
       let div = document.createElement('div');
-
-      let text_lenght = 300;
-
-      if (data[i].text.length > text_lenght ){
-        div.innerHTML = `<div><a href = '../articlesphp/create_${data[i].id}.php'><b>${data[i].title}</b></a></div>${data[i].text.substring(0, text_lenght)}...`;
-      }else{
-        div.innerHTML = `<div><a href = '../articlesphp/create_${data[i].id}.php'><b>${data[i].title}</b></a></div>${data[i].text}`;
-      }
+      let text = article.text;
+      if ( text.length > countwords ) text = text.substring(0, countwords) + '...';
+      div.innerHTML = `<div><a href = '../articlesphp/create_${article.id}.php'><b>${article.title}</b></a></div>${text}`;
       div.className = 'col-md-7 border-right';
                      
       div_col_md_12.append(div);
 
       ArticlesBody2.append(div_col_md_12);
-  }
 
 }
 
@@ -161,7 +91,7 @@ creatorarticles = data =>{
 var elems = document.querySelectorAll('div.aa');
 
 // на каждый элемент повесить обработчик на стадии перехвата
-function GoEvent(k){
+GoEvent = k => {
   for (let j = 0; j < elems.length; j++) {
     elems[j].onclick = () => {foo1(event.target.textContent);}    // addEventListener нужно попробовать?? () => {}
   }
@@ -174,7 +104,7 @@ GoEvent();
 
 
 
-function foo1(i, event){
+foo1 = (i, event) =>{
     GoEvent(i-1); // Удаление событие клика у нажатого элемента
     rows = document.querySelectorAll('div.row');
 
@@ -188,13 +118,27 @@ function foo1(i, event){
       data: {text: i},
       url: 'test.php',	// Относительно articles (php файла где слушается событие)
       dataType: 'json',    // из-за этой хуеты не работало возвращаемое представление в виде строки и тд, только цифры работали
-      success: text => creatorarticles(text),
+      success: text => text.forEach(article => creatorarticles(article)),
       error: respons => alert('fail')
     });
 }
 
-function randomInteger(min, max) {
+randomInteger = (min, max) => {
   // случайное число от min до (max+1)
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
+}
+
+randomArr = (arr, count) => {
+  let randomarr = []
+   for (var i = 0; i < count; i++) {
+    let number = randomInteger(0, arr.length - 1);
+    
+    if (arr.indexOf(number) == -1){
+      randomarr.push(number);
+    }else{
+      i--;
+    }
+  }
+  return randomarr;
 }
